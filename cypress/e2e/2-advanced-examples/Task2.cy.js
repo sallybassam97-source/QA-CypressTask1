@@ -59,6 +59,9 @@ describe("Search for a Product",()=>{
         cy.get('a[href="/products"]').click()
         cy.get("#search_product").type("Blue Top")
         cy.get("#submit_search").click()
+        cy.get(".product-image-wrapper").should("be.visible")
+        cy.url().should("include", "products?search=Blue%20Top")
+
     })
 
     it("Validate that a user can add a product to the shopping cart",()=>{
